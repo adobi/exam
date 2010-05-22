@@ -1,14 +1,18 @@
 <?php  
     
     require_once 'config.php';
+    require_once 'config/dbconfig.php';
 	require_once 'utils/Redirect.php';
+	require_once 'models/DbTable.php';
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
 
-
-    
-	$_template = '';
+	//$db = DbTable::getInstance();
+    //$dbconfig = array('host'=>HOST, 'dbname'=>DBNAME, 'username'=>USERNAME, 'password'=>PASSWORD);	
+    //$db = new DbTable($dbconfig);
+	//$db->setConfig(array('host'=>'localhost', 'dbname'=>'uniweb_termek', 'username'=>'teszt', 'password'=>'teszt'));
+	
 	$flag = 1;
 
 	if(!empty($controller) && file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $controller . '.php')) {
