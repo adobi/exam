@@ -13,30 +13,30 @@
         </div>
         
     <?php endif; ?>    
-    <form action="<?= BASE_URL ?>products/edit" method="post" accept-charset="utf-8">
+    <form action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8">
     
         <fieldset>
             <legend>Login</legend>
             
             <p>
                 <label for = "name">Name</label>
-                <input type="text" name="name" value="" id="name" size = "53" />
+                <input type="text" name="name" value="<?= isset($theProduct['name']) ? $theProduct['name'] : '' ?>" id="name" size = "53" />
             </p>
             <p>
                 <label for = "price">Price</label>
-                <input type="text" name="price" value="" id="price" size = "10" />
+                <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" />
             </p>            
             <p>
                 <label for = "list_price">List price</label>
-                <input type="text" name="list_price" value="" id="list_price" size = "10" />
+                <input type="text" name="list_price" value="<?= isset($theProduct['list_price']) ? $theProduct['list_price'] : '' ?>" id="list_price" size = "10" />
             </p>
             <p>
                 <label for = "image">Image</label>
-                <input type="file" name="imge" value="" id="imge" size = "15" />
+                <input type="file" name="image" value="" id="image" size = "15" />
             </p>
              <p>
                 <label for = "description">Description</label>
-                <textarea rows = "3" cols = "40"></textarea>
+                <textarea name = "description" rows = "3" cols = "40"><?= isset($theProduct['description']) ? $theProduct['description'] : '' ?></textarea>
             </p>
             
         </fieldset>

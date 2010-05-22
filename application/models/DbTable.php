@@ -130,6 +130,7 @@
         
         public function update($data, $id) 
         {
+            
 			if(!is_integer($id)) {
 			    
 			    return false;
@@ -139,15 +140,16 @@
 			foreach($data as $col => $val) {
 				$set[] = $this->_quote($col) . ' = ' . $this->_connection->quote($val);
 			}
+			
 			$sql = 'UPDATE ' . $this->_name . 
 				' SET '  . implode(', ', $set) .  
 				' WHERE ' . $this->_primary . ' = :id';
-				
-			$stmt = $this->_connection->prepare($sql);
-			$stmt->execute(array(':id'=>$id));
-			$result = $stmt->rowCount();
 			
-			return $result;            
+			$stmt = $this->_connection->prepare($sql);
+			return $stmt->execute(array(':id'=>$id));
+			
+            //var_dump($stmt->execute(array(':id'=>$id))); die;
+			//return $result;            
         }
         
         public function delete($id) 

@@ -155,6 +155,61 @@ div#content {
         top:1px;
     }
     
+    div#content .price, div#content .list-price {
+        
+    }
+    div#content .price {
+        text-decoration:line-through;color:#666;
+        font-size:11px;
+    }
+    
+    div#content .list-price {
+        font-weight:bold;
+        font-size:12px;
+    }
+    
+    div#content table.list {
+		width: 680px;
+		margin:10px;
+		cursor:text;
+		border:1px solid #ddd;
+		//border-left:1px solid #ddd;
+	}
+		div#content table.list a {
+			padding:3px;
+		}
+		div#content table.list thead td{
+			padding:5px;
+			border-bottom:1px solid #ccc;
+			font-weight:bold;
+			background:#D2D2D4;
+		}
+		
+		div#content table.list tbody td {
+			padding:5px;
+			vertical-align:middle;
+		    border-top:1px solid #ddd;			
+		}
+		
+		div#content table.list tbody tr:nth-child(2n+1){
+			background:#eee;
+
+		}
+		
+		div#content table.list tbody tr:hover {
+			/*background:#f2fcff;*/
+		}
+		
+		div#content table.list .center {
+			text-align:center;
+		}
+		
+		div#content table.list .description {
+		    width:65%;
+		}
+		
+    
+    
 div#errors {
     border:1px solid #ED6966;
     background:#FFBDAD;
