@@ -4,7 +4,7 @@
 
 	<head>
 		
-		<title></title>
+		<title>Exam</title>
 
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
@@ -16,12 +16,22 @@
 		<div id="container">
 			
 			<div id = "header">
-				header
+				
 			</div> <!-- header -->
 			
 			
 			<div id = "sidebar">
-			    sidebar
+		        <ul>
+    			    <?php if(isset($_SESSION['UserId'])) : ?>
+			            <li>
+					        <a href = "<?= BASE_URL ?>logout">Logout</a>
+			            </li>
+    			    <?php else : ?>
+			            <li>
+					        <a href = "<?= BASE_URL ?>login">Login</a>
+			            </li>
+    			    <?php endif; ?>
+		        </ul>
 			</div> <!-- sidebar -->
 			
 			<div id="content">

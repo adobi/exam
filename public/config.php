@@ -1,18 +1,18 @@
 <?php  
 
     defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
-    
+
     set_include_path(implode(
         PATH_SEPARATOR, 
         array( 
             realpath(APPLICATION_PATH . '/utils'), 
             realpath(APPLICATION_PATH . '/models'), 
-            realpath(APPLICATION_PATH . '/controllers'),
-            realpath(APPLICATION_PATH . '/views'),
             realpath(APPLICATION_PATH),
             get_include_path()
         )
     ));
+//            realpath(APPLICATION_PATH . '/controllers'),
+//            realpath(APPLICATION_PATH . '/views'),
 	
     if(isset($_SERVER['SCRIPT_NAME'])) {
 		
@@ -46,9 +46,9 @@
 		}
 	}
 
-	$page = (isset($_app_info['params'][0]) ? $_app_info['params'][0] : '');
-	$id = (isset($_app_info['params'][1]) ? $_app_info['params'][1] : 0);
-	$extra = (isset($_app_info['params'][2]) ? $_app_info['params'][2] : '');
+	$controller = (isset($_app_info['params'][0]) ? $_app_info['params'][0] : '');
+	$action = (isset($_app_info['params'][1]) ? $_app_info['params'][1] : 0);
+	$param = (isset($_app_info['params'][2]) ? $_app_info['params'][2] : '');
     
 
 ?>

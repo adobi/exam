@@ -1,5 +1,6 @@
 <?php  
 
-    $_template = 'views/home.php';
+    //$_template = 'views/home.php';
+
 
 ?>

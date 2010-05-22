@@ -64,7 +64,7 @@ body {
 }
 
 a {
-	text-decoration: none; padding:3px; color: #1B3A6D;
+	text-decoration: none; padding:3px; color: #0099cc;
 }
 
 a:hover{
@@ -86,7 +86,7 @@ div#container {
 	min-height:700px;
 	text-align:left;
 	width:950px;
-	border:1px solid #ccc;
+	border:0px solid #ccc;
 	overflow:hidden;
 }
 
@@ -94,16 +94,17 @@ div#header {
 	height:120px;
 	position:relative;
 	width:950px;
-	border:1px solid #ccc;
+	border:0px solid #ccc;
 	overflow:hidden;
 }
 
 div#sidebar {
 	float:left;
 	padding:0;
-	width:200px;
-	border:1px solid #ccc;
+	width:120px;
+	border:0px solid #ccc;
 	margin-right:20px;
+	min-height: 120px;
 }
 			
 
@@ -111,12 +112,62 @@ div#content {
 	float:left;
 	padding:10px;
 	width:700px;
-	border:1px solid #ccc;	
+	border:0px solid #ccc;	
 }
 
+    div#content fieldset {
+        width:90%;
+        border:1px solid #ccc;
+        background:#f5f5f5;
+        padding:10px;
+        margin-top:10px;
+    }
+    
+    div#content legend {
+        font-weight:bold;
+    }
+    
+    div#content label {
+        width: 70px;
+        display:inline-block;
+        vertical-align:top;
+    }   
+    
+    div#content input[type="text"], div#content input[type="password"], 
+    div#content input[type="file"],
+    div#content textarea {
+        padding:5px;
+        border:1px solid #ccc;
+    }
+    
+    div#content input[type="text"]:hover, div#content input[type="password"]:hover, 
+    div#content input[type="text"]:focus, div#content input[type="password"]:focus 
+    div#content textarea:focus, div#content textarea:focus {
+        border:1px solid #7F635F;
+    }    
+    div#content input[type="submit"] {
+        padding:5px 10px 3px 10px; 
+        font-weight:bold;
+        position:relative;
+    }
+    
+    div#content input[type=submit]:active {
+        top:1px;
+    }
+    
+div#errors {
+    border:1px solid #ED6966;
+    background:#FFBDAD;
+    color: #111;
+    font-weight:bold;
+    padding:10px;
+    width:90%;
+}
 
 div#footer {
-    border:1px solid #ccc;
+    border:0px solid #ccc;
+    background:#453A31;
+    color:#f5f5f5;
 	font-size:11px;
 	margin-top:30px;
 	padding:20px 0;
