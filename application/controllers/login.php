@@ -13,7 +13,4 @@
             $errors[] = "Invalid Username/Password";
         }
     }
-
-    //$_template = 'views/login.php';
-    
 ?>
