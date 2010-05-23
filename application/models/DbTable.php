@@ -146,8 +146,12 @@
 				' WHERE ' . $this->_primary . ' = :id';
 			
 			$stmt = $this->_connection->prepare($sql);
+			
+			
 			return $stmt->execute(array(':id'=>$id));
 			
+			
+			//var_dump($stmt->errorInfo()); die;
             //var_dump($stmt->execute(array(':id'=>$id))); die;
 			//return $result;            
         }

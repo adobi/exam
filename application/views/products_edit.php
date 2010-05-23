@@ -23,13 +23,13 @@
                 <input type="text" name="name" value="<?= isset($theProduct['name']) ? $theProduct['name'] : '' ?>" id="name" size = "53" />
             </p>
             <p>
-                <label for = "price">Price</label>
-                <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" />
-            </p>            
-            <p>
                 <label for = "list_price">List price</label>
                 <input type="text" name="list_price" value="<?= isset($theProduct['list_price']) ? $theProduct['list_price'] : '' ?>" id="list_price" size = "10" />
             </p>
+            <p>
+                <label for = "price">Price</label>
+                <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" />
+            </p>            
             <p>
                 <label for = "image">Image</label>
                 <input type="file" name="image" value="" id="image" size = "15" />

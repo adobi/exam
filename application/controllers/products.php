@@ -1,23 +1,22 @@
 <?php  
     
+    require_once 'Product.php';
+    
+    $product = new Product();    
+
     $errors = array();
+    
     switch($action) {
         
         case 'list':
         
-            require_once 'Product.php';
-            
-            $product = new Product();
             $products = $product->fetchAll();
         
             $template = 'products_list';
             break;
         case 'edit':
-            require_once 'Product.php';
             
-            $product = new Product();
-                
-            if(isset($param)) {
+            if(isset($param) && !empty($param)) {
                 
                 $theProduct = $product->find((int)$param);
                 
@@ -29,22 +28,54 @@
             }
             
             if($_POST) {
+
+                $wasError = 0;
+                if(trim($_POST['name']) === '') {
+                    $errors[] = 'Name is required';
+                    $wasError = 1;
+                }
                 
-                if(isset($param)) {
-                    
-                    
-                     //update
-                     $product->update($_POST, (int)$param);
+                if(trim($_POST['list_price']) === '' || !is_numeric($_POST['list_price'])) {
+                    $errors[] = 'List price is required and must be numeric';
+                    $wasError = 1;
+                }
+                
+                if(trim($_POST['price']) === '' || !is_numeric($_POST['price'])) {
+                    $errors[] = 'Price is required and must be numeric';
+                    $wasError = 1;
+                }                
+                if(!$wasError) {
+                        
+                    if(isset($param) && !empty($param)) {
+                        
+                        
+                         //update
+                         $product->update($_POST, (int)$param);
+                         
+                         $theProduct = $product->find((int)$param);
+                    }
+                    else {
+                        //insert
+                            $product->insert($_POST);
+                            
+                            Redirect::to(BASE_URL . 'products/list');
+                    }
                 }
                 else {
-                    //insert
-                    $product->insert($_POST);
-                }
+                    $theProduct = $_POST;
+                }                
             }
         
             $template = 'products_edit';
             break;
         case 'delete':
+        
+            if(isset($param) && !empty($param)) {
+                
+                $product->delete((int)$param);
+                
+                Redirect::to(BASE_URL . 'products/list');
+            }
             
             break;
     }
