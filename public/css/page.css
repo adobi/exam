@@ -212,7 +212,14 @@ div#content {
 		}
 		
 		div#content table.list .description {
-		    width:65%;
+		    width:60%;
+		    vertical-align:top;
+		}
+		div#content table.list .action {
+		    width:70px;
+		}
+		div#content table.list img {
+		    float:left;
 		}
 		
 .hidden {

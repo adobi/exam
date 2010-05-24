@@ -2,6 +2,7 @@
     
     require_once 'config.php';
     require_once 'config/dbconfig.php';
+    require_once 'config/uploadconfig.php';
 	require_once 'utils/Redirect.php';
 	require_once 'models/DbTable.php';
 	require_once 'helpers/Display.php';

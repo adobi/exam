@@ -13,7 +13,7 @@
         </div>
         
     <?php endif; ?>    
-    <form action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8" id = "product-form">
+    <form enctype="multipart/form-data" action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8" id = "product-form">
     
         <fieldset>
             <legend>Login</legend>
