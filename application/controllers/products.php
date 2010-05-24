@@ -48,57 +48,34 @@
                         $wasError = 1;
                     }    
                     
-                    //echo '<pre>';
+                    echo '<pre>';
+                    var_dump($_FILES);
                     if($_FILES['image']) {
                         
                         $filename = time() . '_' . $_FILES['image']['name'];
                         
-                        $_POST['image'] = $filename;
-                        
-                        $ext = end(explode('.', $filename));
+                        $ext = strtolower(end(explode('.', $filename)));
                         
                         if(in_array($ext, $valid_exts)) {
                             
-                            list($imgWidth, $imgHeight) = getimagesize($_FILES['image']['tmp_name']);
-                            
-                            $newWidth = 600; $newHeight = 450;
-                            $thumbWidth = 150; $thumbHeight = 113;
-                            
                             if(move_uploaded_file($_FILES['image']['tmp_name'], FOTO_UPLOAD_DIR . $filename)) {
                                 
-                                $img = imagecreatefromjpeg(BASE_URL.'/'. FOTO_UPLOAD_DIR .$filename);
+                                $_POST['image'] = $filename;
                                 
-                                if(function_exists('imagecreatetruecolor')) {
-                                    $create	= 'imagecreatetruecolor';
-                        			$copy	= 'imagecopyresampled';
-                        		}
-                        		else {
-                        			$create	= 'imagecreate';
-                        			$copy	= 'imagecopyresized';
-                        		} 
+                                require_once 'utils/Image.php';
                                 
-                        		$newImage = $create($newWidth, $newHeight);
-                        		$copy($newImage, $img, 0, 0, 0, 0, $newWidth, $newHeight, $imgWidth, $imgHeight);
-                        		
-                        		@imagejpeg($newImage, FOTO_UPLOAD_DIR.$filename);
-                        		
-                        		imagedestroy($newImage);
-                        		
-                        		$newImage = $create($thumbWidth, $thumbHeight);
-                        		$copy($newImage, $img, 0, 0, 0, 0, $thumbWidth, $thumbHeight, $imgWidth, $imgHeight);
-                        		
-                        		@imagejpeg($newImage, THUMB_UPLOAD_DIR .$filename);
-                        		
-		                        //imagedestroy($thumb);
-                                imagedestroy($img);
-		                        imagedestroy($newImage);
+                                $image = new Image(FOTO_UPLOAD_DIR . $filename);
+                                $image->setDestinationFullPath(FOTO_UPLOAD_DIR .$filename);
+                                $image->resize(600, 450);
+                                
+                                $image = new Image(FOTO_UPLOAD_DIR .$filename);
+                                $image->setDestinationFullPath(THUMB_UPLOAD_DIR .$filename);
+                                $image->resize(150, 113);                                 
                             }                            
                         }
                         else {
                             $errors[] = 'Not a valid filetype';
                         }
-
-                        //var_dump($_FILES);       
                     }
                     //die;            
                     if(!$wasError) {
@@ -128,7 +105,14 @@
             
                 if(isset($param) && !empty($param)) {
                     
+                    $p = $product->find((int)$param);
+                    
                     $product->delete((int)$param);
+                    
+                    if($p['image']) {
+                        @unlink(FOTO_UPLOAD_DIR .$p['image']);
+                        @unlink(THUMB_UPLOAD_DIR .$p['image']);
+                    }
                     
                     Redirect::to(BASE_URL . 'products/list');
                 }

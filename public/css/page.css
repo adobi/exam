@@ -228,7 +228,11 @@ div#content {
 		
 .hidden {
     display:none;
-}    
+}  
+
+.center {
+    text-align:center;
+}  
     
 div#errors {
     border:1px solid #ED6966;

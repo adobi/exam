@@ -44,7 +44,7 @@
                     var el = $(element)    ;
                     var errorMsg = el.next('.error-msg');
                     
-                    if(!/^\d+(\.|,){0,1}\d+$/.test(jQuery.trim(el.val()))) {
+                    if(!/^\d*(\.|,){0,1}\d+$/.test(jQuery.trim(el.val()))) {
                         
                         if(!el.hasClass('error')) {
                             el.addClass('error');

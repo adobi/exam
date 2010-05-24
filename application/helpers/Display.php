@@ -10,17 +10,17 @@
             }
             
             $html = '<table border="0" cellspacing="5" cellpadding="5" class = "list">';
-            $html .=    '<thead>';
+            /*$html .=    '<thead>';
             $html .=     '<tr>';
             //$html .=        '<td></td>';
             $html .=        '<td></td>';
-            $html .=        '<td>Product details</td>';
+            $html .=        '<td class = "center">Product details</td>';
             //if($isAdmin) {
                 $html .=        '<td></td>';
             //}
             $html .=                '</tr>';
             $html .=    '</thead>';
-                
+            */    
             $html .=    '<tbody>';
             
                     foreach($products as $p) {
