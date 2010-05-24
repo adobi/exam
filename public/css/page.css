@@ -213,13 +213,17 @@ div#content {
 		
 		div#content table.list .description {
 		    width:60%;
-		    vertical-align:top;
+		    //vertical-align:top;
 		}
 		div#content table.list .action {
 		    width:70px;
 		}
 		div#content table.list img {
 		    float:left;
+		    border: 1px solid #888;
+		    -moz-border-radius:3px;
+		    -webkit-border-radius:3px;
+		    padding:2px;
 		}
 		
 .hidden {

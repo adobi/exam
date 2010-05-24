@@ -34,9 +34,10 @@
                             //$html .=  '<td> ';
                             $html .= '</td>';
                             $html .= '<td class = "description"> ';
-                            $html .= $p['name']. '<br />';
-                                $html .= '<span class = "list-price">'.$p['list_price']. ' HUF</span> <span class = "price">'. $p['price'] .' HUF</span>';
+                            $html .= '<strong>Name: </strong>' . $p['name']. '<br />';
+                                $html .= '<span class = "list-price">List price: '.$p['list_price']. ' HUF</span> <span class = "price">Price: '. $p['price'] .' HUF</span>';
                                 $html .= '<br />';
+                                $html .= '<strong>Description: </strong>';
                                 $html .= is_null($p['description']) ? '<em>no description</em>' : $p['description'];
                             $html .= '</td>';
                            
