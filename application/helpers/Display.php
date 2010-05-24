@@ -41,7 +41,7 @@
                                 $html .= '<span class = "list-price">List price: '.$p['list_price']. ' HUF</span> <span class = "price">Price: '. $p['price'] .' HUF</span>';
                                 $html .= '<br />';
                                 $html .= '<strong>Description: </strong>';
-                                $html .= is_null($p['description']) ? '<em>no description</em>' : $p['description'];
+                                $html .= empty($p['description']) ? '<em>no description</em>' : $p['description'];
                             $html .= '</td>';
                            
                                 $html .= '<td class = "action">';
