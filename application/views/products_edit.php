@@ -16,7 +16,13 @@
     <form enctype="multipart/form-data" action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8" id = "product-form">
     
         <fieldset>
-            <legend>Login</legend>
+            <legend>Product details</legend>
+            
+            <?php if($theProduct['image']) : ?>
+
+                <?= Display::image($theProduct['image'], 'right'); ?>
+                
+            <?php endif; ?>
             
             <p>
                 <label for = "name">Name</label>

@@ -48,8 +48,6 @@
                         $wasError = 1;
                     }    
                     
-                    echo '<pre>';
-                    var_dump($_FILES);
                     if($_FILES['image']) {
                         
                         $filename = time() . '_' . $_FILES['image']['name'];
@@ -75,6 +73,7 @@
                         }
                         else {
                             $errors[] = 'Not a valid filetype';
+                            $wasError = 1;
                         }
                     }
                     //die;            

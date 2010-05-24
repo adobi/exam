@@ -1,8 +1,10 @@
 <?php  
 
-    class Display {
+    class Display 
+    {
         
-        public static function products($products, $isAdmin = false) {
+        public static function products($products, $isAdmin = false) 
+        {
             
             if(empty($products)) {
                 
@@ -28,7 +30,8 @@
                         $html .= '<tr>';
                         $html .=  '<td> ';
                             if(!empty($p['image'])) {
-                                    $html .= '<img src = "' . BASE_URL . THUMB_UPLOAD_DIR . $p['image'].'" alt = ""/>'; 
+                                    
+                                    $html .= self::image($p['image']);
                             }
                             //$html .=  '</td> ';
                             //$html .=  '<td> ';
@@ -53,6 +56,15 @@
                     }    
                 $html .= '</tbody>';
             $html .= '</table>';
+            
+            return $html;
+        }
+        
+        public function image($image, $float = 'left') 
+        {
+            $html  = '<a target = _blank href = "'.BASE_URL . '/' . FOTO_UPLOAD_DIR . $image . '">';
+                $html .= '<img '.($float === 'right' ? ' class = "right"' : '').' src = "' . BASE_URL . THUMB_UPLOAD_DIR . $image.'" alt = ""/>';
+            $html .= '</a>';
             
             return $html;
         }
