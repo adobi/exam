@@ -155,6 +155,13 @@ div#content {
         top:1px;
     }
     
+    .error {
+        border:1px solid red!important;
+    }
+    .error-msg {
+        color:red!important;
+    }
+    
     div#content .price, div#content .list-price {
         
     }
@@ -208,7 +215,9 @@ div#content {
 		    width:65%;
 		}
 		
-    
+.hidden {
+    display:none;
+}    
     
 div#errors {
     border:1px solid #ED6966;

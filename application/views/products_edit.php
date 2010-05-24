@@ -13,26 +13,30 @@
         </div>
         
     <?php endif; ?>    
-    <form action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8">
+    <form action="<?= BASE_URL ?>products/edit/<?= isset($theProduct['id']) ? $theProduct['id'] : '' ?>" method="post" accept-charset="utf-8" id = "product-form">
     
         <fieldset>
             <legend>Login</legend>
             
             <p>
                 <label for = "name">Name</label>
-                <input type="text" name="name" value="<?= isset($theProduct['name']) ? $theProduct['name'] : '' ?>" id="name" size = "53" />
+                <input type="text" name="name" value="<?= isset($theProduct['name']) ? $theProduct['name'] : '' ?>" id="name" size = "53" class = "required"/>
+                <span class = "error-msg"></span>
             </p>
             <p>
                 <label for = "list_price">List price</label>
-                <input type="text" name="list_price" value="<?= isset($theProduct['list_price']) ? $theProduct['list_price'] : '' ?>" id="list_price" size = "10" />
+                <input type="text" name="list_price" value="<?= isset($theProduct['list_price']) ? $theProduct['list_price'] : '' ?>" id="list_price" size = "10" class = "required numeric" />
+                <span class = "error-msg"></span>
             </p>
             <p>
                 <label for = "price">Price</label>
-                <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" />
+                <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" class = "required numeric"/>
+                <span class = "error-msg"></span>
             </p>            
             <p>
                 <label for = "image">Image</label>
-                <input type="file" name="image" value="" id="image" size = "15" />
+                <input type="file" name="image" value="" id="image" size = "15" class = "required"/>
+                <span class = "error-msg"></span>
             </p>
              <p>
                 <label for = "description">Description</label>

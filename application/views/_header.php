@@ -10,6 +10,7 @@
 
 		<link rel="stylesheet" href="<?= BASE_URL ?>css/page.css" />
 		<script type="text/javascript" charset="utf-8" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src = "<?= BASE_URL ?>js/app.js"></script>
 	</head>
 	
 	<body>

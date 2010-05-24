@@ -4,6 +4,7 @@
     require_once 'config/dbconfig.php';
 	require_once 'utils/Redirect.php';
 	require_once 'models/DbTable.php';
+	require_once 'helpers/Display.php';
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
@@ -13,10 +14,10 @@
     //$db = new DbTable($dbconfig);
 	//$db->setConfig(array('host'=>'localhost', 'dbname'=>'uniweb_termek', 'username'=>'teszt', 'password'=>'teszt'));
 	
-	$flag = 1;
+	$flag = 0;
 
 	if(!empty($controller) && file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $controller . '.php')) {
-
+        
 	    require_once 'controllers/' . $controller . '.php';
 	    $flag = 1;
 	}
