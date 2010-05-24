@@ -18,7 +18,7 @@
         <fieldset>
             <legend>Product details</legend>
             
-            <?php if($theProduct['image']) : ?>
+            <?php if(isset($theProduct) && $theProduct['image']) : ?>
 
                 <?= Display::image($theProduct['image'], 'right'); ?>
                 

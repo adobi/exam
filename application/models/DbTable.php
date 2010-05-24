@@ -92,7 +92,7 @@
         {
             //$this->_connect();
             
-            $sql = 'SELECT * FROM ' . $this->_name ;
+            $sql = 'SELECT * FROM ' . $this->_name . ' ORDER BY ' . $this->_primary . ' DESC';
             
             $stmt = $this->_connection->prepare($sql);
             
