@@ -11,9 +11,7 @@
             get_include_path()
         )
     ));
-//            realpath(APPLICATION_PATH . '/controllers'),
-//            realpath(APPLICATION_PATH . '/views'),
-	
+
     if(isset($_SERVER['SCRIPT_NAME'])) {
 		
 		define("_APP_MAIN_DIR", rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));

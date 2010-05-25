@@ -14,11 +14,6 @@
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
 
-	//$db = DbTable::getInstance();
-    //$dbconfig = array('host'=>HOST, 'dbname'=>DBNAME, 'username'=>USERNAME, 'password'=>PASSWORD);	
-    //$db = new DbTable($dbconfig);
-	//$db->setConfig(array('host'=>'localhost', 'dbname'=>'uniweb_termek', 'username'=>'teszt', 'password'=>'teszt'));
-	
 	$flag = 0;
 
 	if(!empty($controller) && file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $controller . '.php')) {

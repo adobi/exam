@@ -1,0 +1,10 @@
+- teszelve
+    - windows
+    - php 5.2.9
+    - mysql: 5.1.33
+    - apache: 2.2.11
+
+- a működéshez szükséges a mod_rewrite engedélyezése
+- a public/uploads, illetve a public/uploads/thumbs konyvtáraknak 777-es jogosúltság szükséges
+
+- adatbázistábla telepítése: public/install linken

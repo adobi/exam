@@ -34,8 +34,6 @@
         public function resize($newWidth, $newHeight) 
         {
 
-            // ha allokep itt csinani vele valamit.
-            
             if($this->_sourceHeight > $this->_sourceWidth) {
                 
                 $newWidth = $this->_sourceWidth;

@@ -26,8 +26,6 @@
         
         public function __construct() 
         {
-            //$this->_config = array('host'=>HOST, 'dbname'=>DBNAME, 'username'=>USERNAME, 'password'=>PASSWORD);
-            //$this->_config = $config;
             $this->_connect();
         }
         
@@ -149,11 +147,6 @@
 			
 			
 			return $stmt->execute(array(':id'=>$id));
-			
-			
-			//var_dump($stmt->errorInfo()); die;
-            //var_dump($stmt->execute(array(':id'=>$id))); die;
-			//return $result;            
         }
         
         public function delete($id) 

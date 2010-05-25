@@ -12,17 +12,7 @@
             }
             
             $html = '<table border="0" cellspacing="5" cellpadding="5" class = "list">';
-            /*$html .=    '<thead>';
-            $html .=     '<tr>';
-            //$html .=        '<td></td>';
-            $html .=        '<td></td>';
-            $html .=        '<td class = "center">Product details</td>';
-            //if($isAdmin) {
-                $html .=        '<td></td>';
-            //}
-            $html .=                '</tr>';
-            $html .=    '</thead>';
-            */    
+              
             $html .=    '<tbody>';
             
                     foreach($products as $p) {
@@ -33,8 +23,6 @@
                                     
                                     $html .= self::image($p['image']);
                             }
-                            //$html .=  '</td> ';
-                            //$html .=  '<td> ';
                             $html .= '</td>';
                             $html .= '<td class = "description"> ';
                             $html .= '<strong>Name: </strong>' . $p['name']. '<br />';

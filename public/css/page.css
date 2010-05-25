@@ -141,7 +141,7 @@ div#content {
     }
     
     div#content input[type="text"]:hover, div#content input[type="password"]:hover, 
-    div#content input[type="text"]:focus, div#content input[type="password"]:focus 
+    div#content input[type="text"]:focus, div#content input[type="password"]:focus, 
     div#content textarea:focus, div#content textarea:focus {
         border:1px solid #7F635F;
     }    
@@ -180,7 +180,6 @@ div#content {
 		margin:10px;
 		cursor:text;
 		border:1px solid #ddd;
-		//border-left:1px solid #ddd;
 	}
 		div#content table.list a {
 			padding:3px;
@@ -203,17 +202,12 @@ div#content {
 
 		}
 		
-		div#content table.list tbody tr:hover {
-			/*background:#f2fcff;*/
-		}
-		
 		div#content table.list .center {
 			text-align:center;
 		}
 		
 		div#content table.list .description {
 		    width:60%;
-		    //vertical-align:top;
 		}
 		div#content table.list .action {
 		    width:70px;
