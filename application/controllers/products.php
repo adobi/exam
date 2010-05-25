@@ -46,15 +46,15 @@
                     if(trim($_POST['price']) === '' || !is_numeric($_POST['price'])) {
                         $errors[] = 'Price is required and must be numeric';
                         $wasError = 1;
-                    }    
+                    }  
                     
-                    if($_FILES['image']) {
+                    if($_FILES['image']['name']) {
                         
                         $filename = time() . '_' . $_FILES['image']['name'];
                         
-                        $ext = strtolower(end(explode('.', $filename)));
+                        $ext = strtolower(@end(explode('.', $filename)));
                         
-                        if(in_array($ext, $valid_exts)) {
+                        if(in_array($ext, $validImageTypes)) {
                             
                             if(move_uploaded_file($_FILES['image']['tmp_name'], FOTO_UPLOAD_DIR . $filename)) {
                                 
@@ -63,12 +63,12 @@
                                 require_once 'utils/Image.php';
                                 
                                 $image = new Image(FOTO_UPLOAD_DIR . $filename);
-                                $image->setDestinationFullPath(FOTO_UPLOAD_DIR .$filename);
-                                $image->resize(600, 450);
+                                $image->setDestinationFullPath(FOTO_UPLOAD_DIR . $filename);
+                                $image->resize(IMAGE_WIDTH, IMAGE_HEIGHT);
                                 
                                 $image = new Image(FOTO_UPLOAD_DIR .$filename);
-                                $image->setDestinationFullPath(THUMB_UPLOAD_DIR .$filename);
-                                $image->resize(150, 113);                                 
+                                $image->setDestinationFullPath(THUMB_UPLOAD_DIR . $filename);
+                                $image->resize(THUMB_WIDTH, THUMB_HEIGHT);                                 
                             }                            
                         }
                         else {
@@ -76,15 +76,29 @@
                             $wasError = 1;
                         }
                     }
-                    //die;            
+                    else {
+                        if(!isset($param)) {
+                            
+                            $errors[] = 'Image is required';
+                            $wasError = 1;
+                        }
+                    }
+                             
                     if(!$wasError) {
                             
                         if(isset($param) && !empty($param)) {
                             
-                             //update
-                             $product->update($_POST, (int)$param);
+                             // ha van kep, akkor regit toroljuk, uj elmentodik
+                            if(isset($_POST['image'])) {
+                                 
+                                $theProduct = $product->find((int)$param);
+                                @unlink(FOTO_UPLOAD_DIR .$theProduct['image']);
+                                @unlink(THUMB_UPLOAD_DIR .$theProduct['image']);                                 
+                            }
+                            //update
+                            $product->update($_POST, (int)$param);
                              
-                             $theProduct = $product->find((int)$param);
+                            $theProduct = $product->find((int)$param);
                         }
                         else {
                             //insert

@@ -60,7 +60,7 @@
             return $html;
         }
         
-        public function image($image, $float = 'left') 
+        public static function image($image, $float = 'left') 
         {
             $html  = '<a target = _blank href = "'.BASE_URL . '/' . FOTO_UPLOAD_DIR . $image . '">';
                 $html .= '<img '.($float === 'right' ? ' class = "right"' : '').' src = "' . BASE_URL . THUMB_UPLOAD_DIR . $image.'" alt = ""/>';

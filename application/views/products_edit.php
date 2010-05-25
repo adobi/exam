@@ -18,34 +18,34 @@
         <fieldset>
             <legend>Product details</legend>
             
-            <?php if(isset($theProduct) && $theProduct['image']) : ?>
+            <?php if(isset($theProduct) && isset($theProduct['image'])) : ?>
 
                 <?= Display::image($theProduct['image'], 'right'); ?>
                 
             <?php endif; ?>
             
             <p>
-                <label for = "name">Name</label>
+                <label for = "name">Name:</label>
                 <input type="text" name="name" value="<?= isset($theProduct['name']) ? $theProduct['name'] : '' ?>" id="name" size = "53" class = "required"/>
                 <span class = "error-msg"></span>
             </p>
             <p>
-                <label for = "list_price">List price</label>
+                <label for = "list_price">List price:</label>
                 <input type="text" name="list_price" value="<?= isset($theProduct['list_price']) ? $theProduct['list_price'] : '' ?>" id="list_price" size = "10" class = "required numeric" />
                 <span class = "error-msg"></span>
             </p>
             <p>
-                <label for = "price">Price</label>
+                <label for = "price">Price:</label>
                 <input type="text" name="price" value="<?= isset($theProduct['price']) ? $theProduct['price'] : '' ?>" id="price" size = "10" class = "required numeric"/>
                 <span class = "error-msg"></span>
             </p>            
             <p>
-                <label for = "image">Image</label>
-                <input type="file" name="image" value="" id="image" size = "15" class = "required"/>
+                <label for = "image">Image:</label>
+                <input type="file" name="image" value="" id="image" size = "15" <?= empty($param) ? ' class = "required" ' : '' ?>/>
                 <span class = "error-msg"></span>
             </p>
              <p>
-                <label for = "description">Description</label>
+                <label for = "description">Description:</label>
                 <textarea name = "description" rows = "3" cols = "40"><?= isset($theProduct['description']) ? $theProduct['description'] : '' ?></textarea>
             </p>
             

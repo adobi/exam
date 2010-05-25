@@ -20,7 +20,7 @@
             
             $this->_getSize();
             
-            $this->_imageType = strtolower(end(explode('.', $this->_sourceFullPath)));
+            $this->_imageType = strtolower(@end(explode('.', $this->_sourceFullPath)));
             
             $this->_sourceImage = $this->_create($this->_sourceFullPath);
 
@@ -35,6 +35,11 @@
         {
 
             // ha allokep itt csinani vele valamit.
+            
+            if($this->_sourceHeight > $this->_sourceWidth) {
+                
+                $newWidth = $this->_sourceWidth;
+            }
 
             if(function_exists('imagecreatetruecolor')) {
                 $create	= 'imagecreatetruecolor';

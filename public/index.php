@@ -6,6 +6,10 @@
 	require_once 'utils/Redirect.php';
 	require_once 'models/DbTable.php';
 	require_once 'helpers/Display.php';
+
+    error_reporting(E_ALL|E_STRICT);
+ 	ini_set('display_errors', 'on');
+
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();    
@@ -45,7 +49,7 @@
 	        
 	        require_once 'views/home.php';
 	    }
-	    else {
+	    elseif(file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . $controller . '.php')) {
 	        require_once 'views/' . $controller . '.php';
 	    }
 	}

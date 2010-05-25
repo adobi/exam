@@ -2,7 +2,9 @@
     $errors = array();
     if($_POST) {
         
-        if(isset($_POST['username']) && $_POST['username'] === 'admin' && isset($_POST['password']) && $_POST['password'] === 'adminjelszo') {
+        require_once 'config/adminconfig.php';
+        
+        if(isset($_POST['username']) && $_POST['username'] === ADMIN_USERNAME && isset($_POST['password']) && md5($_POST['password']) === ADMIN_PASSWORD) {
             
             $_SESSION['UserId'] = 1;
             
