@@ -3,7 +3,7 @@
     if(isset($_SESSION['UserId'])) {
         
     
-        require_once 'Product.php';
+        //require_once 'Product.php';
         
         $product = new Product();    
     
@@ -15,7 +15,7 @@
             
                 $products = $product->fetchAll();
             
-                $template = 'products_list';
+                //$template = 'products_list';
                 break;
             case 'edit':
                 
@@ -104,7 +104,7 @@
                             //insert
                             $product->insert($_POST);
                             
-                            Redirect::to(BASE_URL . 'products/list');
+                            Redirect::to(BASE_URL . 'products/');
                         }
                     }
                     else {
@@ -112,7 +112,7 @@
                     }                
                 }
             
-                $template = 'products_edit';
+                //$template = 'products_edit';
                 break;
             case 'delete':
             
@@ -127,7 +127,7 @@
                         @unlink(THUMB_UPLOAD_DIR .$p['image']);
                     }
                     
-                    Redirect::to(BASE_URL . 'products/list');
+                    Redirect::to(BASE_URL . 'products/');
                 }
                 
                 break;

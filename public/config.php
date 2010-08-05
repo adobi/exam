@@ -7,6 +7,8 @@
         array( 
             realpath(APPLICATION_PATH . '/utils'), 
             realpath(APPLICATION_PATH . '/models'), 
+            realpath(APPLICATION_PATH . '/helpers'), 
+            realpath(APPLICATION_PATH . '/config'), 
             realpath(APPLICATION_PATH),
             get_include_path()
         )
